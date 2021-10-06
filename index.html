@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" value="width=device-width; initial-scale=1.0; user-scalable=no">
+    <title>Landing</title>
+</head>
+
+<body>
+
+    <!-- Обёртка приложения -->
+    <app>
+        <running-line text="DON'T STOP BELIVIN' DON'T STOP BELIVIN' DON'T STOP BELIVIN' DON'T STOP BELIVIN' DON'T STOP BELIVIN' DON'T STOP BELIVIN' DON'T STOP BELIVIN' DON'T STOP BELIVIN' DON'T STOP BELIVIN' DON'T STOP BELIVIN'"></running-line>
+
+        <style>
+            running-line {
+                display: block;
+                position: relative;
+                background-color: #EDE734;  
+                color: #000000;    
+                overflow: hidden;
+                width: max-content;   
+                animation: 20s linear anim-running-line infinite;       
+            }
+
+            running-line::before, running-line::after {
+                content: attr(text);
+                display: inline-block;
+                padding: 1rem 1rem 1rem 0;
+                white-space: nowrap;
+            }
+
+            @keyframes anim-running-line {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+        </style>
+
+        <h1>
+            <section animated="blinking-show">
+                <div>FEEL FREE</div>
+                <div>FEEL SELF</div>
+                <div>FEEL SOCK</div>
+            </section>
+        </h1>
+
+        <style>
+            section {
+                animation: .2s .9s steps(1, end) anim-blink 3;
+            }
+            section>div:nth-child(1) {
+                filter: opacity(0);
+                animation: 0s .0s linear anim-fade;            
+                animation-fill-mode: forwards;
+            }
+            section>div:nth-child(2) {
+                filter: opacity(0);
+                animation: 0s .3s linear anim-fade;            
+                animation-fill-mode: forwards;
+            }
+            section>div:nth-child(3) {
+                filter: opacity(0);
+                animation: 0s .6s linear anim-fade;            
+                animation-fill-mode: forwards;
+            }
+    
+            @keyframes anim-blink {
+                0% {
+                    filter: opacity(0);
+                }
+    
+                50% {
+                    filter: opacity(1);
+                }
+    
+                100% {
+                    filter: opacity(1);
+                }
+            }
+    
+            @keyframes anim-fade {
+                0% { filter: opacity(0); }            
+                100% { filter: opacity(1); }
+            }
+        </style>
+    </app>
+
+</body>
+
+</html>
